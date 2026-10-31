@@ -1,0 +1,26 @@
+name: BastiChallenges
+version: '${version}'
+main: dev.challenges.basti.BastiPlugin
+api-version: '26.3'
+description: Konfigurierbare BastiGHG-Style Challenges (Force Item, Force Mob, Monster Army Battle)
+commands:
+  challenge:
+    description: Haupt-Befehl des Plugins
+    aliases: [basti, ch]
+    usage: /challenge help
+  result:
+    description: Zeigt das Leaderboard / Ergebnis-GUI
+    usage: /result [forceitem|forcemob|army]
+  forceitem:
+    description: Force Item Befehle
+    usage: /forceitem skip
+  forcemob:
+    description: Force Mob Befehle
+    usage: /forcemob skip
+permissions:
+  challenge.admin:
+    description: Challenges steuern
+    default: op
+  challenge.use:
+    description: /result, /forceitem skip, Wellen bauen
+    default: true

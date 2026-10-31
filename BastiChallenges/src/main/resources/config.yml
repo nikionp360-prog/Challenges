@@ -1,0 +1,59 @@
+# BastiChallenges - config.yml
+# Farbcodes mit & (z.B. &6). Alles hier ist auch ingame ueber /challenge ... aenderbar bzw. per /challenge settings.
+prefix: "&6[Challenge] &7"
+
+timer:
+  direction: COUNTUP            # COUNTUP | COUNTDOWN
+  countdown-seconds: 3600       # Startwert fuer COUNTDOWN
+  freeze-players-on-pause: true # Spieler einfrieren, wenn der Timer pausiert ist
+
+# Welche Modi aktiv sind (wird bei /challenge mode ... automatisch gespeichert)
+modes:
+  forceitem: false
+  forcemob: false
+  armybattle: false
+  forceskill: false             # reserviert, noch nicht implementiert
+
+randomizer:
+  enabled: false                # globaler Master-Schalter
+  seed: 0                       # 0 = bei jedem Start zufaellig
+  block-drops: true             # Block-Abbau droppt zufaellige Items
+  crafting: true                # Crafting-Ergebnisse sind zufaellig
+  mob-drops: false              # Mob-Drops sind zufaellig
+  per-mode:                     # Randomizer pro Modus an/aus (wirkt nur, wenn enabled = true)
+    forceitem: true
+    forcemob: true
+    armybattle: true
+    forceskill: true
+
+force-item:
+  skips: 3
+  remove-item-on-complete: false
+  # Zusaetzlich zur eingebauten Sperrliste (Bedrock, Command Blocks, Spawn Eggs, ...)
+  excluded-items: []
+
+force-mob:
+  skips: 3
+  give-compass: true
+  compass-radius: 128
+  excluded-mobs: [player, armor_stand, giant, illusioner, ender_dragon, wither, mannequin]
+
+army-battle:
+  collect-seconds: 7200         # Sammelphase (2 Stunden)
+  max-mobs-per-wave: 40
+  start-delay-seconds: 5        # Vorlauf, bevor der Kampf startet
+  wave-delay-seconds: 3         # Pause zwischen den Wellen
+  death-penalty-seconds: 30     # Zeitstrafe pro Tod im Kampf
+  keep-inventory-on-death: true
+  clear-drops: true             # Arena-Mobs droppen nichts
+  excluded-mobs: [player, armor_stand, giant, illusioner, ender_dragon, wither, mannequin]
+
+# Spielfeld-/Arena-Boxen (Origin wird mit /challenge arena setspawn gesetzt)
+arena:
+  size: 16
+  height: 8
+  spacing: 4
+  wall-material: GLASS
+  floor-material: STONE_BRICKS
+  wall-removal-seconds: 0       # >0: Waende verschwinden nach dieser Schutzzeit (nur Item/Mob-Boxen)
+  auto-build-on-start: false    # Boxen automatisch beim Challenge-Start bauen (Force Item / Force Mob)
